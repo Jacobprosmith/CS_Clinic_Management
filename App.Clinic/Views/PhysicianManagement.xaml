@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Clinic.Views.PhysicianManagement"
+             Title="PhysicianManagement"
+             NavigatedTo="PhysicianManagement_NavigatedTo">
+    <VerticalStackLayout>
+        <Label 
+            Text="What would you like to do?"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <ListView 
+            ItemsSource="{Binding Physicians}" 
+            SelectedItem="{Binding SelectedPhysician}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label FontAttributes="Bold" Grid.Column="0" Text="{Binding PhysicianId}"/>
+                            <Label Grid.Column="1" Text="{Binding Name}"/>
+                            <Button Grid.Column="2" Text="Edit" Clicked="EditPhysician"/>
+                            <Button Grid.Column="3" Text="Delete" Clicked="DeleteClicked"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
+        <Button Text="Cancel" Clicked="CancelClicked" />
+        <Button Text="Add Physician" Clicked="AddPhysician"/>
+        <Button Text="Delete" Clicked="DeleteClicked"/>
+        <Button Text="Edit Physician" Clicked="EditPhysician"/>
+        <Button Text="View Physicians" Clicked="ViewPhysicians"/>
+    </VerticalStackLayout>
+</ContentPage>
