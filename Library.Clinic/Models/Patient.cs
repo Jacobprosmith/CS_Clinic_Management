@@ -17,7 +17,7 @@ namespace Library.Clinic.Models
         {
             get
             {
-                return $"[{Id}] {Name}";
+                return $"[{Id}] {Name} - {InsuranceType}";
             }
         }
         private string? name;
@@ -40,6 +40,7 @@ namespace Library.Clinic.Models
         public DateTime Birthday { get; set; }
         public string Description { get; set; }
         public string Diagnoses { get; set; }
+        public string InsuranceType { get; set; }
 
         public Patient()
         {
@@ -50,6 +51,7 @@ namespace Library.Clinic.Models
             Birthday = DateTime.MinValue;
             Description = string.Empty;
             Diagnoses = string.Empty;
+            InsuranceType = InsurancePlan.Bad;
         }
     }
 }

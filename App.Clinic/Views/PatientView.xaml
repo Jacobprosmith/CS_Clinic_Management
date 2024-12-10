@@ -13,6 +13,17 @@
             <Label Grid.Column="0" Text="Name:"/>
             <Entry Grid.Column="1" Text="{Binding Name}"/>
         </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Insurance Type:" />
+            <Picker Grid.Column="1"
+            ItemsSource="{Binding InsuranceTypes}"
+            SelectedItem="{Binding SelectedInsuranceType, Mode=TwoWay}" />
+        </Grid>
+
         <Button
             Text="Ok"
             Clicked="AddClicked"

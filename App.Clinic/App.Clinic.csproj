@@ -76,6 +76,9 @@
 	  <Compile Update="Views\PatientManagement.xaml.cs">
 	    <DependentUpon>PatientManagement.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\TreatmentManagement.xaml.cs">
+	    <DependentUpon>TreatmentManagement.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -95,6 +98,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PhysicianView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TreatmentManagement.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TreatmentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

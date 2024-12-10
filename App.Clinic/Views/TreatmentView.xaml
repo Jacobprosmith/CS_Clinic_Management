@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Clinic.Views.TreatmentView"
+             Title="TreatmentView"
+             NavigatedTo="TreatmentView_NavigatedTo">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Name Row -->
+            <Label Grid.Row="0" Grid.Column="0" Text="Name:" VerticalTextAlignment="Center"/>
+            <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Name}" Placeholder="Enter treatment name"/>
+
+            <!-- Price Row -->
+            <Label Grid.Row="1" Grid.Column="0" Text="Price:" VerticalTextAlignment="Center"/>
+            <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Price}" Placeholder="Enter price" Keyboard="Numeric"/>
+        </Grid>
+        <Button
+            Text="Ok"
+            Clicked="AddClicked"
+            />
+        <Button
+            Text="Cancel"
+            Clicked="CancelClicked"
+            />
+    </VerticalStackLayout>
+</ContentPage>

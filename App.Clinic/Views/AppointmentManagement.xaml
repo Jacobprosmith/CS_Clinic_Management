@@ -5,61 +5,54 @@
              Title="AppointmentManagement"
              NavigatedTo="AppointmentManagement_NavigatedTo">
 
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="10" Spacing="20">
+        <!-- ListView to Display Appointments -->
         <ListView
             ItemsSource="{Binding Appointments}"
-            SelectedItem="{Binding SelectedAppointment}"
-            >
+            SelectedItem="{Binding SelectedAppointment}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-                                <!-- Patient Display-->
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0"
-                                    Text="Patient:"/>
-                                <Label Grid.Column="1"
-                                    Text="{Binding PatientName}"/>
-                            </Grid>
-                            <Grid Grid.Column="1">
-                                <!-- Start Time Display-->
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0"
-                                    Text="Appointment Start:"/>
-                                <Label Grid.Column="1"
-                                    Text="{Binding StartTime}"/>
-                            </Grid>
-                            <Grid Grid.Column="2">
-                                <!-- End Time Display-->
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0"
-                                    Text="Appointment End:"/>
-                                <Label Grid.Column="1"
-                                    Text="{Binding EndTime}"/>
-                            </Grid>
+                        <VerticalStackLayout Padding="5" Spacing="5">
+                            <!-- Patient Name -->
+                            <HorizontalStackLayout>
+                                <Label Text="Patient:" FontAttributes="Bold" />
+                                <Label Text="{Binding PatientName}" />
+                            </HorizontalStackLayout>
 
+                            <!-- Start Time -->
+                            <HorizontalStackLayout>
+                                <Label Text="Start Time:" FontAttributes="Bold" />
+                                <Label Text="{Binding StartTime}" />
+                            </HorizontalStackLayout>
 
-                        </Grid>
+                            <!-- End Time -->
+                            <HorizontalStackLayout>
+                                <Label Text="End Time:" FontAttributes="Bold" />
+                                <Label Text="{Binding EndTime}" />
+                            </HorizontalStackLayout>
+
+                            <!-- Treatment -->
+                            <HorizontalStackLayout>
+                                <Label Text="Treatment:" FontAttributes="Bold" />
+                                <Label Text="{Binding SelectedTreatment}" />
+                            </HorizontalStackLayout>
+
+                            <!-- Price -->
+                            <HorizontalStackLayout>
+                                <Label Text="Final Price:" FontAttributes="Bold" />
+                                <Label Text="{Binding FinalPrice, StringFormat='${0:F2}'}" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Schedule Appointment" Clicked="AddClicked"/>
-        <Button Text="Cancel" Clicked="CancelClicked"/>
+
+        <!-- Action Buttons -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10">
+            <Button Text="Schedule Appointment" Clicked="AddClicked" />
+            <Button Text="Cancel" Clicked="CancelClicked" />
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

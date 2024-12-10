@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Clinic.Views.TreatmentManagement"
+             Title="TreatmentManagement"
+             NavigatedTo="TreatmentManagement_NavigatedTo">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" Text="{Binding Query}"/>
+            <Button Grid.Column="1" Text="Search" Clicked="RefreshClicked"/>
+        </Grid>
+        <ListView 
+            ItemsSource="{Binding Treatments}" 
+            SelectedItem="{Binding SelectedTreatment}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label FontAttributes="Bold" Grid.Column="0" Text="{Binding TreatmentId}"/>
+                            <Label Grid.Column="1" Text="{Binding Display}"/>
+                            <Button Grid.Column="2" Text="Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}"/>
+                            <Button Grid.Column="3" Text="Delete" Clicked="RefreshClicked" Command="{Binding DeleteCommand}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Cancel" Clicked="CancelClicked" />
+        <Button Text="Add Treatment" Clicked="AddTreatment"/>
+        <Button Text="Delete" Clicked="DeleteClicked"/>
+        <Button Text="Edit Treatment" Clicked="EditTreatment"/>
+        <Button Text="View Treatments" Clicked="ViewTreatments"/>
+    </VerticalStackLayout>
+</ContentPage>
